@@ -1,6 +1,7 @@
 from django.contrib import admin 
  
 from .models import College, Program, Organization, Student, OrgMember 
+
  
 @admin.register(College)
 class CollegeAdmin(admin.ModelAdmin):
@@ -38,7 +39,7 @@ class StudentAdmin(admin.ModelAdmin):
 @admin.register(OrgMember)
 class OrgMemberAdmin(admin.ModelAdmin): 
     list_display = ("student", "get_member_program", "organization", 
-                    "date_joined",) 
+                    "date_joined",)                 
     search_fields = ("student__lastname", "student__firstname",) 
  
     def get_member_program(self, obj): 
@@ -47,3 +48,5 @@ class OrgMemberAdmin(admin.ModelAdmin):
             return member.program 
         except Student.DoesNotExist: 
             return None 
+        
+
