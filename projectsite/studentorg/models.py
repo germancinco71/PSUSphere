@@ -43,6 +43,6 @@ class OrgMember(BaseModel):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)  
     date_joined = models.DateField() 
     
-    def get_member_program(self):
+    def __str__ (self):
         return self.student.program.prog_name
   
