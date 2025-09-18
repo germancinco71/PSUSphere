@@ -12,7 +12,7 @@
                         <br />
                             <div class="col-md-12 row">
                                 <div class="col-md-6">
-                                    <form class="navbar-left navbar-form nav-search mr-md-3" action="">
+                                    <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'program-list' %}">
                                         <div class="input-group">
                                             <input type="text" placeholder="Search ..." class="form-control" />
                                             <div class="input-group-append">
@@ -23,7 +23,12 @@
                                     </div>
                                 </form>
                             </div>
-
+                            <div class="col-md-6">
+                                <div class="pull-right">
+                                    <a href="{% url 'program-add' %}" class="btn btn-success btn-rounded">Add Program</a>
+                                </div>
+                            </div>
+                        </div>
                             <div class="col-md-12">
                                 <form method="get" class="row g-2 align-items-center">
                                 <div class="col-auto">
