@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-#+6bd)-qlqftx#fch)#g&3espkpe10&xgnmi8bq_*)#i6xb&dc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'germancinco.pythonanywhere.com']
+ALLOWED_HOSTS = ['germancinco.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -47,14 +47,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
-    
 ]
 if "pythonanywhere" in socket.gethostname():
-        SITE_ID = 2 # production site (psusphere.pythonanywhere.com)
+    SITE_ID = 1 # production site (germancinco.pythonanywhere.com)
 else:
-        SITE_ID = 1 # local site (127.0.0.1:8000)
-    
-    
+    SITE_ID = 2 # local site (127.0.0.1:8000)
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -147,18 +144,18 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_URL = '/accounts/login/' # where @login_required will send users
-LOGIN_REDIRECT_URL = '/' # where to go after successful login
-LOGOUT_REDIRECT_URL = '/accounts/login/' # after logout, go back to login
 
-ACCOUNT_LOGOUT_REDIRECT_URL = '/' # where to redirect after logout
-ACCOUNT_LOGOUT_ON_GET = True # logout immediately on GET
+LOGIN_URL = '/accounts/login/'             # where @login_required will send users
+LOGIN_REDIRECT_URL = '/'                   # where to go after successful login 
+LOGOUT_REDIRECT_URL = '/accounts/login/'   # after logout, go back to login 
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'# where to redirect after logout 
+ACCOUNT_LOGOUT_ON_GET = True               # logout immediately on GET 
 
-ACCOUNT_LOGIN_METHODS = {"username", "email"} # allow login with username OR email
+ACCOUNT_LOGIN_METHODS = {"username", "email"}  # allow login with username OR email 
 
-ACCOUNT_SIGNUP_FIELDS = [
-    "username",
-    "email",
-    "password1",
-    "password2",
-]
+ACCOUNT_SIGNUP_FIELDS = [ 
+    "username*", 
+    "email*", 
+    "password1*", 
+    "password2*", 
+] 

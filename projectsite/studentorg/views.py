@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 from django.utils import timezone
 
+
 class HomePageView(ListView):
     model = Organization
     context_object_name = 'home'
