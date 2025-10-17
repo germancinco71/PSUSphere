@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
 ]
-if "german" in socket.gethostname():
+if "german" in socket.gethostname() or 'pythonanywhere' in os.environ.get('PYTHONANYWHERE_DOMAIN', ''):
     SITE_ID = 1 # production site (germancinco.pythonanywhere.com)
 else:
     SITE_ID = 2 # local site (127.0.0.1:8000)
