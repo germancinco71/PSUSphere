@@ -6,6 +6,10 @@ from studentorg.forms import OrganizationForm, OrgMemberForm, StudentForm, Colle
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.utils import timezone
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
+@method_decorator(login_required, name='dispatch')
 
 
 class HomePageView(ListView):
